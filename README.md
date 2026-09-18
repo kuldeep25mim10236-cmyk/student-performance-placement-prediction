@@ -174,10 +174,3 @@ system diagrams (architecture, workflow, UML, ER).
 | Package Regressor | MAE (LPA) | 0.77 |
 
 (Full metrics with confusion matrix in `docs/evaluation_report.json`.)
-
----
-
-## Author
-
-Submitted as part of the VITyarthi "Build Your Own Project" flipped
-course evaluation.
