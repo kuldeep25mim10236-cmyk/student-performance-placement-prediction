@@ -1,0 +1,31 @@
+from graphviz import Digraph
+
+g = Digraph("Workflow", format="png")
+g.attr(rankdir="LR", fontname="Helvetica", bgcolor="white")
+g.attr("node", fontname="Helvetica", fontsize="11", shape="box", style="rounded,filled", fillcolor="#EAF1FB", color="#4C72B0")
+
+g.node("start", "Start", shape="ellipse", fillcolor="#D9EAD3")
+g.node("input", "Student enters/\nselects profile data")
+g.node("validate", "Validate input\n(range & completeness checks)", fillcolor="#FBEAEA", color="#C44E52")
+g.node("preprocess", "Preprocess &\nengineer features")
+g.node("choice", "Choose prediction\ntype", shape="diamond", fillcolor="#FFF2CC", color="#BF9000")
+g.node("perf", "Performance Model\npredicts score (0-100)")
+g.node("place", "Placement Model\npredicts label, probability,\nexpected package")
+g.node("store", "Persist / update record\nin SQLite database")
+g.node("display", "Display prediction\n+ analytics on dashboard")
+g.node("end", "End", shape="ellipse", fillcolor="#D9EAD3")
+
+g.edge("start", "input")
+g.edge("input", "validate")
+g.edge("validate", "preprocess", label="valid")
+g.edge("validate", "input", label="invalid\n(error shown)", style="dashed")
+g.edge("preprocess", "choice")
+g.edge("choice", "perf", label="performance")
+g.edge("choice", "place", label="placement")
+g.edge("perf", "store")
+g.edge("place", "store")
+g.edge("store", "display")
+g.edge("display", "end")
+
+g.render("workflow_diagram", cleanup=True)
+print("saved workflow_diagram.png")

@@ -1,0 +1,26 @@
+{
+  "performance_model": {
+    "MAE": 4.374,
+    "RMSE": 5.506,
+    "R2": 0.649
+  },
+  "placement_classifier": {
+    "Accuracy": 0.683,
+    "Precision": 0.704,
+    "Recall": 0.633,
+    "F1": 0.667,
+    "ConfusionMatrix": [
+      [
+        44,
+        16
+      ],
+      [
+        22,
+        38
+      ]
+    ]
+  },
+  "package_regressor": {
+    "MAE_LPA": 0.767
+  }
+}
